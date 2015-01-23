@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<!-- 	<p:dialog header="Edit User"  modal="true" id="#{id}" widgetVar="dlg1" -->
+	<!-- 		showEffect="fade" hideEffect="fade" resizable="false" > -->
+	<p:dialog header="Edit User" widgetVar="dlg1" minHeight="40">
+		<p:outputPanel id="editUser" style="text-align:center;">
+
+			<!-- 				<f:facet name="header"> -->
+			<!-- 					<p:graphicImage -->
+			<!-- 						name="demo/images/car/#{dtSelectionView.selectedCar.brand}-big.gif" /> -->
+			<!-- 				</f:facet> -->
+
+			<h:outputText value="Id: " />
+			<h:outputText value="#{userController.userSelected.id}" />
+
+			<h:outputText value="Nombre" />
+			<h:inputText value="#{userController.userSelected.name}" />
+
+			<h:outputText value="Surname: " />
+			<h:inputText value="#{userController.userSelected.surname}" />
+
+			<p:commandButton value="Save" actionListener="#{userController.updateUser}" oncomplete="PF('dlg1').hide();" update=":form:table"/>
+			<p:commandButton value="Cancel"  oncomplete="PF('dlg1').hide();" />
+<!-- 			<p:commandButton value="Cancel" actionListener="#{userController.limpiar}"  oncomplete="PF('dlg1').hide();" /> -->
+
+			<!-- 			<p:commandButton value="Save" action="#{userController.updateUser}" oncomplete="PF('dlg1').hide();" type="button" />  -->
+			<!--  			<p:commandButton value="Cancelar" immediate="true"  oncomplete="PF('dlg1').hide();"/> -->
+
+		</p:outputPanel>
+	</p:dialog>
+</ui:composition>
