@@ -44,7 +44,9 @@ public class UserController {
 	}
 	
 	public void findUser() {
-		user = userService.find(1);
+		User user = new User();
+		user.setId(1);
+		user = userService.find(user);
 	}
 	
 	public void findAll() {

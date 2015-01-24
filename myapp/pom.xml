@@ -53,14 +53,6 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-		<!-- Hibernate library -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.0.0.Final</version>
-		</dependency>
-
-
 		<!-- MySQL Java Connector library -->
 		<dependency>
 			<groupId>mysql</groupId>

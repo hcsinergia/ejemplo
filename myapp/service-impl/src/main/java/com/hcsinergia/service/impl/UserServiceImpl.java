@@ -4,9 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.hcsinergia.dao.Dao;
+import com.hcsinergia.dao.UserDao;
 import com.hcsinergia.model.User;
 import com.hcsinergia.service.UserService;
 
@@ -14,27 +13,23 @@ import com.hcsinergia.service.UserService;
 public class UserServiceImpl implements UserService{
 
 	@Autowired
-	private Dao<User> dao;
+	private UserDao dao;
 	
 	@Override
-	@Transactional
 	public void insert(User user) {
 		dao.insert(user);		
 	}
 
-	@Transactional
 	@Override
-	public User find(Integer idUser) {
-		return dao.findById(User.class, idUser);
+	public User find(User user) {
+		return dao.findById(user);
 	}
 	
-	@Transactional
 	@Override
 	public List<User> findAll() {
 		return dao.find();
 	}
 	
-	@Transactional
 	@Override
 	public User updateUser(User user){
 		return dao.update(user);
